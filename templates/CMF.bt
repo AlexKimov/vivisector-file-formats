@@ -1,0 +1,284 @@
+//------------------------------------------------
+//--- 010 Editor v7.0 Binary Template
+//
+//      File: 
+//   Authors: 
+//   Version: 
+//   Purpose: 
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+
+local uint faceCount, vertexCount, objectCount, unknCount, texCount;
+
+struct {
+  BYTE Magic[4];
+  UINT Unknown;
+} FILE_HEADER;
+
+while (!FEof()) {
+  struct {
+    UINT Type;
+    UINT Size;
+    if (Size > 0)
+      switch (Type) {
+        case 1:
+          break;
+        //
+        case 2:
+          UINT Count;
+          texCount = Count;          
+          break;
+        case 3:
+          struct {
+            CHAR Name[128]; 
+          } TYPE_3[texCount];         
+          break;
+        //
+        case 8192:
+          break;
+        //
+        case 8209:
+          struct {
+            UINT VertexCount;
+            vertexCount = VertexCount;
+          } TYPE_8209;
+          break;
+        //
+        case 8210:
+          struct {
+            UINT FaceCount;
+            faceCount = FaceCount;
+          } TYPE_8210;
+          break;
+        //
+        case 8215:
+          struct {
+            UINT Unknown[vertexCount];
+          } TYPE_8215;
+          break;
+        //
+        case 8218:
+          struct {
+            UINT Unknown[vertexCount];
+          } TYPE_8218;
+          break;
+        //
+        case 8220:
+          struct {
+            UINT Unknown[vertexCount];
+          } TYPE_8220;
+          break;
+       //
+        case 8221:
+          struct {
+            UINT Unknown[vertexCount];
+          } TYPE_8221;
+          break;
+        //
+        case 8211:
+          struct {
+            struct {
+              UINT Unknown;
+              UINT Unknown;
+              UINT Unknown;
+              UINT Unknown;     
+            } INDEX[vertexCount];       
+          } TYPE_8211;
+          break;
+        //
+        case 8224:
+          struct {
+            struct {
+              FLOAT X;
+              FLOAT Y;
+              FLOAT Z;
+
+              FLOAT X;
+              FLOAT Y;
+              FLOAT Z;
+
+              FLOAT U;
+              FLOAT V;
+            } POSITION[vertexCount];
+          } TYPE_8224;
+          break;
+        //
+        case 8225:
+          struct {
+            struct {
+              FLOAT X;
+              FLOAT Y;
+              FLOAT Z;
+
+              FLOAT X;
+              FLOAT Y;
+              FLOAT Z;
+
+              FLOAT U;
+              FLOAT V;
+            } POSITION[vertexCount];
+          } TYPE_8225;
+          break;
+        //
+        case 8227:
+          struct {
+            struct {
+              FLOAT X; 
+              FLOAT Y;  
+              FLOAT Z;    
+            } POSITION[faceCount];
+          } TYPE_8225;
+          break;
+        //
+        case 8240:
+          struct {
+            UINT Count;
+            unknCount = Count;
+          } TYPE_8240;
+          break;
+        //
+        case 8241:
+          struct {
+            struct {
+              UINT Unknown;
+              UINT Unknown;
+             } Unknown[unknCount];
+          } TYPE_8241;
+          break;
+        //
+        case 8242:
+          struct {
+            struct {
+              UINT Unknown;
+              UINT Unknown;
+             } Unknown[unknCount];
+          } TYPE_8242;
+          break;
+        //
+        case 8243:
+          struct {
+            struct {
+              FLOAT X; 
+              FLOAT Y;  
+              FLOAT Z; 
+             } Unknown[unknCount];
+          } TYPE_8243;
+          break;
+        //
+        case 8244:
+          struct {
+            struct {
+              UINT UN;
+              UINT UN;
+              UINT UN;
+              UINT UN;            
+             } Unknown[vertexCount];
+          } TYPE_8244;
+          break;
+        //
+        case 12288:
+          break;
+        //
+        case 61441:
+          struct {
+            UINT Unknown;
+            UINT Unknown;
+            UINT Unknown;
+            INT Unknown;
+            FLOAT Unknown;
+            UINT Unknown;
+            UINT Unknown;
+            UINT Unknown;
+            FLOAT Unknown;
+            UINT Unknown;
+            UINT Unknown;
+          } TYPE_61441;
+          break;
+
+        case 61456:
+          struct {
+            UINT ObjectCount;
+            objectCount = ObjectCount;
+          } TYPE_61456;
+          break;
+        case 61457:
+          struct {
+           struct { 
+              CHAR Name[32];
+           } OBJECT[objectCount];
+          } TYPE_61457;
+          break;
+        case 61458:
+          struct {
+           struct { 
+             FLOAT Unknown; 
+             FLOAT Unknown;  
+             FLOAT Unknown;             
+           } OBJECT[objectCount];
+          } TYPE_61458;
+          break;
+        case 61459:
+          struct {        
+            UINT16 Unknown[objectCount];
+          } TYPE_61459;
+          break;
+        case 61460:
+          struct {        
+            UINT16 Unknown[objectCount];
+          } TYPE_61460;
+          break;
+        case 61461:
+          struct { 
+            struct {
+              FLOAT X;
+              FLOAT Y;
+              FLOAT Z;
+
+              FLOAT X;
+              FLOAT Y;
+              FLOAT Z;
+
+              FLOAT U;
+              FLOAT V;
+              FLOAT Z;
+            } MATRIX[objectCount];
+          } TYPE_61461;
+          break;
+        case 61473:
+          struct {
+            UINT Unknown[vertexCount];      
+          } TYPE_61473;
+          break;
+        case 61474:
+          struct {
+            BYTE Unknown[vertexCount];      
+          } TYPE_61474;
+          break;
+        case 61475:
+          struct {
+            UINT16 Unknown[vertexCount];      
+          } TYPE_61475;
+          break;
+        case 61476:
+          struct {
+             struct { 
+               BYTE Data[Size];             
+             } OBJECT;     
+          } TYPE_61476;
+          break;
+        case 61488:
+          struct {
+            UINT16 Unknown[faceCount];    
+          } TYPE_61488;
+          break;
+        case 61489:
+          struct {
+            UINT16 Unknown[faceCount];  
+          } TYPE_61489;
+          break;
+      }; 
+  } SECTION;
+};
