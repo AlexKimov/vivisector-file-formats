@@ -15,7 +15,7 @@ local uint faceCount, vertexCount, objectCount, unknCount, texCount;
 
 struct {
   BYTE Magic[4];
-  UINT Unknown;
+  UINT Unknown; // 0
 } FILE_HEADER;
 
 while (!FEof()) {
