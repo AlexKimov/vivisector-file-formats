@@ -1,0 +1,89 @@
+//------------------------------------------------
+//--- 010 Editor v8.0.1 Binary Template
+//
+//      File: 
+//   Authors: 
+//   Version: 
+//   Purpose: 
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+
+local uint boneCount, keyCount, nCount, lCount, eCount;
+
+while (!FEof()) {
+  struct { 
+    UINT Type;  
+    UINT Size;
+    if (Size > 0) {
+      struct {
+        switch (Type) {
+          case 57345:
+            UINT Size;
+            break;
+          case 57346:
+            UINT Count;
+            boneCount = Count;
+            break;
+          case 57347:
+            UINT Count;
+            keyCount = Count;
+            break;
+          case 57348:
+            struct {
+              CHAR Name[64];
+            } BONE[boneCount];
+            break;
+          case 57351:
+            FLOAT Unknown;
+            break;
+          case 57360:
+            UINT KeyIndex;            
+            struct {
+              FLOAT X;
+              FLOAT Y;
+              FLOAT Z;
+            } POSITION[keyCount];
+            break;
+          case 57361:  
+            UINT KeyIndex;            
+            struct {
+              FLOAT X;
+              FLOAT Y;
+              FLOAT Z;
+              FLOAT W;
+            } ROTATION[keyCount];
+            break;
+          case 57366: 
+            UINT KeyIndex;            
+            struct {
+              FLOAT X;
+              FLOAT Y;
+              FLOAT Z;
+            } POSITION[eCount];
+            break;
+          case 57379: 
+            UINT Count;
+            eCount = Count;            
+            struct {
+              UINT A;
+            } Unknown[241];
+            break;
+          case 57380:
+            UINT Count;
+            nCount = Count;
+            break;
+          case 57381:
+            UINT16 Length; 
+            CHAR Name[Length];           
+            struct {
+              FLOAT X;
+            } SCALE[keyCount];
+            break;
+        }
+      } SECTION_DATA;
+    };
+  } SECTION;
+}
