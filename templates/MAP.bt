@@ -1,0 +1,56 @@
+//------------------------------------------------
+//--- 010 Editor v8.0.1 Binary Template
+//
+//      File: 
+//   Authors: 
+//   Version: 
+//   Purpose: 
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+
+UINT Unknown; 
+UINT num;
+ 
+UINT data[num];  
+UINT Unknown; 
+UINT Unknown; 
+UINT Unknown; 
+UINT Unknown; 
+
+if (data[0]) {
+  UINT size1; 
+  byte data1[size1];
+}
+
+if (data[1]) {
+  UINT size2; 
+  byte RLEdata2[size2]; 
+  UINT size3; 
+  byte RLEdata3[size3];  
+}
+
+if (data[2]) {
+  UINT size4; 
+  byte RLEdata4[size4]; 
+}
+
+UINT size5; 
+byte RLEdata5[size5]; 
+
+if (data[3]) {
+  UINT size6; 
+  byte RLEdata6[size6]; 
+} 
+
+if (data[4]) {
+  UINT size7; 
+  byte RLEdata7[size7]; 
+}
+
+if (data[5]) {
+  UINT size8; 
+  byte RLEdata8[size8]; 
+}
