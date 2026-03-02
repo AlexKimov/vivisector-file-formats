@@ -1,0 +1,1 @@
+unpack_map.py "F:\Games\Vivisector - Beast Within\DATA\Areas\DRM10\drm10.map" -o out/
